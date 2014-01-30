@@ -1,4 +1,4 @@
-﻿#About Durandal 4.5.1.
+﻿#About Durandal 451
 
 
 This project consists of Durandal 2.0.1 running with ASP.NET 4.5.1 using OWIN security. 
