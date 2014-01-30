@@ -1,0 +1,15 @@
+﻿<h2>Start</h2>
+<p>
+    This is the start page for logged in users. This page can only be viewed by users who have signed in.
+    If the current user is a member of the 'Admin' role an Admin section will be rendered below.
+</p>
+<P>
+    The user <span data-bind="text: session.userName()"></span>  is in the following roles:
+</P>
+<ul data-bind="foreach: session.userRoles()">
+    <li data-bind="html: $data"></li>
+</ul>
+<div data-bind="ifIsInRole: 'Administrators' ">
+    <h2>Admin</h2>
+    <p>This is an admin section which will ony be visible if the current user is in the 'Admin' role.</p>
+</div>
