@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Durandal Starter Kit</title>
+        <title>Durandal 451</title>
         
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -13,7 +13,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="format-detection" content="telephone=no"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+        <meta name="fragment" content="!">
+
         <link rel="apple-touch-startup-image" href="~/Content/images/ios-startup-image-landscape.png" media="(orientation:landscape)" />
         <link rel="apple-touch-startup-image" href="~/Content/images/ios-startup-image-portrait.png" media="(orientation:portrait)" />
         <link rel="apple-touch-icon" href="~/Content/images/icon.png"/>
@@ -29,11 +30,17 @@
             }
         </script>
     </head>
-    <body>
-        <div id="applicationHost" class="container">
-            @Html.Partial("_splash")
-        </div>
+<body>
+    <div id="applicationHost" class="container">
+        @Html.Partial("_splash")
+    </div>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script type="text/javascript" src="~/Scripts/require.js" data-main="@Url.Content("~/App/main")"></script>
+    }
+    else
+    {
         <script type="text/javascript" src="~/App/main-built.js"></script>
-        @*<script type="text/javascript" src="~/Scripts/require.js" data-main="/App/main"></script>*@
-    </body>
+    }
+</body>
 </html>
