@@ -18,12 +18,27 @@ namespace Durandal451
         {
             PublicClientId = "self";
 
-            var context = new IdentityDbContext();
-            System.Data.Entity.Database.SetInitializer<IdentityDbContext>(new IdentityDbInitializer());
+            UserManagerFactory = () =>
+            {
+                var context = new IdentityDbContext();
+                System.Data.Entity.Database.SetInitializer<IdentityDbContext>(new IdentityDbInitializer());
 
-            UserManagerFactory = () => new UserManager<IdentityUser>(new UserStore<IdentityUser>(context));
-            RoleManagerFactory = () => new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var userStore = new UserStore<IdentityUser>(context);
+                userStore.DisposeContext = true;
 
+                return new UserManager<IdentityUser>(userStore);
+            };
+
+            RoleManagerFactory = () =>
+            {
+                var context = new IdentityDbContext();
+                System.Data.Entity.Database.SetInitializer<IdentityDbContext>(new IdentityDbInitializer());
+
+                var roleStore = new RoleStore<IdentityRole>(context);
+          
+                return new RoleManager<IdentityRole>(roleStore);
+            }; 
+                      
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/Token"),
