@@ -26,7 +26,7 @@ namespace Durandal451.Models
             
             var administrator = new IdentityUser { UserName = "Administrator" };
 
-            userManager.Create(administrator, "Durandal451");
+            userManager.Create(administrator, "Administrator451");
 
             userManager.AddToRole(administrator.Id, "RegisteredUsers");
             userManager.AddToRole(administrator.Id, "Administrators");
