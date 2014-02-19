@@ -1,6 +1,6 @@
 ﻿#Durandal 451
 
-Durandal 2.0.1 running with ASP.NET 4.5.1 using OWIN security:
+Durandal 2.0.1 running with ASP.NET 4.5.1 using OWIN security to provide:
 
 * site based and 3rd party user authentication,
 * local SPA authorization and customization based on role membership.
