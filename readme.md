@@ -34,7 +34,7 @@ To render areas of a view based on the role membership use the **ifIsInRole** cu
 
 #References
 
-It is based on the following packages and components:
+This project is based on the following packages and components:
 
 * [ASP.NET Single Page Application template](http://www.asp.net/single-page-application)
 * [Durandal StarterKit With Bootstrap 3](https://www.nuget.org/packages/ProvenStyle.Durandal.StarterKit/0.0.10)
