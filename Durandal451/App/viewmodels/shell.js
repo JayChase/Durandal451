@@ -16,13 +16,12 @@
     function setupRouter() {
         router.map([
                 { route: '', title: 'Welcome', moduleId: 'viewmodels/welcome', nav: true},
-                { route: 'welcome', title: 'Welcome', moduleId: 'viewmodels/welcome' },
-                { route: 'flickr', moduleId: 'viewmodels/flickr', nav: true},
+                { route: 'welcome', title: 'Welcome', moduleId: 'viewmodels/welcome' },                
                 { route: 'register', moduleId: 'viewmodels/register', nav: false},
                 { route: 'login', moduleId: 'viewmodels/login', nav: false},
                 { route: 'registerExternal', moduleId: 'viewmodels/registerExternal', nav: false},
-                { route: 'manage', moduleId: 'viewmodels/manage', nav: false},
-                { route: 'start', moduleId: 'viewmodels/start', nav: true, requiredRoles: ['RegisteredUsers']}
+                { route: 'manage', moduleId: 'viewmodels/manage', nav: false, requiredRoles: ['RegisteredUsers'] },
+                { route: 'start', title:'Get started', moduleId: 'viewmodels/start', nav: true, requiredRoles: ['RegisteredUsers']}
         ]).buildNavigationModel();
 
         router.guardRoute = function (routeInfo, params, instance) {
@@ -80,7 +79,7 @@
                     if (data.userName) {
                         session.setUser(data);
 
-                        window.location.href = "#/manage";
+                        window.location.href = "#manage";
                         setupRouter().done(function () {
                             dfd.resolve();
                         });
@@ -91,7 +90,7 @@
                             type: "error"
                         });
 
-                        window.location.href = "#/login";
+                        window.location.href = "#login";
                         setupRouter().done(function () {
                             dfd.resolve();
                         });
@@ -104,7 +103,7 @@
                         type: "error"
                     });
 
-                    window.location.href = "#/login";
+                    window.location.href = "#login";
                     setupRouter().done(function () {
                         dfd.resolve();
                     });
@@ -116,7 +115,7 @@
                 type: "error"
             });
 
-            window.location.href = "#/login";
+            window.location.href = "#login";
             setupRouter().done(function () {
                 dfd.resolve();
             });
@@ -144,7 +143,7 @@
 
                             sessionStorage.removeItem("loginUrl");
 
-                            window.location.href = "#/registerExternal";
+                            window.location.href = "#registerExternal";
 
                             setupRouter().done(function () {
                                 dfd.resolve();
@@ -157,7 +156,7 @@
                                 type: "error"
                             });
 
-                            window.location.href = "#/login";
+                            window.location.href = "#login";
                             setupRouter().done(function () {
                                 dfd.resolve();
                             });
@@ -169,7 +168,7 @@
                             type: "error"
                         });
 
-                        window.location.href = "#/login";
+                        window.location.href = "#login";
                         setupRouter().done(function () {
                             dfd.resolve();
                         });
@@ -182,7 +181,7 @@
                         type: "error"
                     });
 
-                    window.location.href = "#/login";
+                    window.location.href = "#login";
                     setupRouter().done(function () {
                         dfd.resolve();
                     });
@@ -202,7 +201,7 @@
                             type: "error"
                         });
 
-                        window.location.href = "#/login";
+                        window.location.href = "#login";
                         setupRouter().done(function () {
                             dfd.resolve();
                         });
@@ -215,7 +214,7 @@
                         type: "error"
                     });
 
-                    window.location.href = "#/login";
+                    window.location.href = "#login";
                     setupRouter().done(function () {
                         dfd.resolve();
                     });

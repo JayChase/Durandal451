@@ -16,7 +16,7 @@ During the database initialization two roles are created:
 
 A user called **Administrator** is also created with the password '**Administrator451**' and added to both roles. Edit IdentityDbInitializer if you need to change this, or add more roles and users.
 
-To configure route based authorization add a property  **requiredRoles** to each route the need to be checked when setting up the route map.
+To configure route based authorization add a property  **requiredRoles** to each route that needs to be checked when setting up the route map.
 
 ```javascript
 { route: 'start', moduleId: 'viewmodels/start', nav: true, requiredRoles: ['RegisteredUsers'] },
@@ -28,7 +28,7 @@ To render areas of a view based on the role membership use the **ifIsInRole** cu
 ```html
 <div data-bind="ifIsInRole: 'Admnistrators' ">
     <h2>Admin</h2>
-    <p>This is an admin section which will ony be visible if the current user is in the 'Admin' role.</p>
+    <p>This is an admin section which will only be visible if the current user is in the 'Admnistrators' role.</p>
 </div>
 ```
 

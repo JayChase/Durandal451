@@ -20,11 +20,10 @@
 
         return vm;
 
-        function activate() {
+        function activate() {            
 
-            var registerExternal = JSON.parse(sessionStorage["registerExternal"]);
-
-            if (registerExternal !== undefined) {
+            if (sessionStorage["registerExternal"]) {
+                var registerExternal = JSON.parse(sessionStorage["registerExternal"]);
                 sessionStorage.removeItem("registerExternal");
 
                 vm.loginProvider(registerExternal.loginProvider);
