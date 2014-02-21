@@ -16,6 +16,7 @@ namespace Durandal451 {
 		  .Include("~/Content/durandal.css")
           .Include("~/Content/starterkit.css")
           .Include("~/Content/toastr.min.css")
+          .Include("~/Content/site.css")
         );
     }
 
