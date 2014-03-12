@@ -8,19 +8,19 @@
         'knockout.validation': '../Scripts/knockout.validation',
         'bootstrap': '../Scripts/bootstrap',
         'jquery': '../Scripts/jquery-1.10.2',
-        'jquery.utilities':'../Scripts/jquery.utilities',
+        'jquery.utilities': '../Scripts/jquery.utilities',
         'toastr': '../Scripts/toastr'
     },
     shim: {
+        'jquery.utilities': {
+            dep: ['jquery']
+        },
         'bootstrap': {
             deps: ['jquery'],
             exports: 'jQuery'
         },
         'knockout.validation': {
             deps: ['knockout']
-        },
-        'jquery.utilities': {
-            dep: ['jquery']
         }
     }
 });

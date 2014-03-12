@@ -83,9 +83,7 @@
                    });
 
                 return dfd.promise();
-            }
-            else
-            {
+            } else {
                 session.isBusy(false);
                 return dfd.resolve();
             }

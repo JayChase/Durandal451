@@ -8,9 +8,9 @@
             'Customise views for the user dependent on user roles'
         ],
         references: [
-            {name:'Durandal', url:'http://durandaljs.com/'},
-            {name:'Bootstrap', url:'http://getbootstrap.com/'},
-            {name:'ASP.NET OWIN', url:'http://www.asp.net/vnext/overview/authentication'}            
+            {name:'Durandal', url: 'http://durandaljs.com/'},
+            {name:'Bootstrap', url: 'http://getbootstrap.com/'},
+            {name:'ASP.NET OWIN', url: 'http://www.asp.net/vnext/overview/authentication'}            
         ]
     };        
 

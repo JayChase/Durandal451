@@ -58,7 +58,7 @@
             }
 
             return errors;
-        };
+        }
 
         var securityService = {
             addExternalLogin: addExternalLogin,
@@ -102,7 +102,7 @@
                 data: data,
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function changePassword(data) {
             return $.ajax(changePasswordUrl, {
@@ -110,21 +110,21 @@
                 data: data,
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function getExternalLogins(returnUrl, generateState) {
             return $.ajax(externalLoginsUrl(returnUrl, generateState), {
                 cache: false,
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function getManageInfo(returnUrl, generateState) {
             return $.ajax(manageInfoUrl(returnUrl, generateState), {
                 cache: false,
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function getUserInfo(accessToken) {
             var headers;
@@ -141,28 +141,28 @@
                 cache: false,
                 headers: headers
             });
-        };
+        }
 
         function login(data) {
             return $.ajax(loginUrl, {
                 type: "POST",
                 data: data
             });
-        };
+        }
 
         function logout() {
             return $.ajax(logoutUrl, {
                 type: "POST",
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function register(data) {
             return $.ajax(registerUrl, {
                 type: "POST",
                 data: data
             });
-        };
+        }
 
         function registerExternal(accessToken, data) {
             return $.ajax(registerExternalUrl, {
@@ -172,7 +172,7 @@
                     "Authorization": "Bearer " + accessToken
                 }
             });
-        };
+        }
 
         function removeLogin(data) {
             return $.ajax(removeLoginUrl, {
@@ -180,7 +180,7 @@
                 data: data,
                 headers: getSecurityHeaders()
             });
-        };
+        }
 
         function setPassword(data) {
             return $.ajax(setPasswordUrl, {
@@ -188,5 +188,5 @@
                 data: data,
                 headers: getSecurityHeaders()
             });
-        };
+        }
     });

@@ -21,7 +21,7 @@
                 { route: 'login', moduleId: 'viewmodels/login', nav: false},
                 { route: 'registerExternal', moduleId: 'viewmodels/registerExternal', nav: false},
                 { route: 'manage', moduleId: 'viewmodels/manage', nav: false, requiredRoles: ['RegisteredUsers'] },
-                { route: 'start', title:'Get started', moduleId: 'viewmodels/start', nav: true, requiredRoles: ['RegisteredUsers']}
+                { route: 'start', title: 'Get started', moduleId: 'viewmodels/start', nav: true, requiredRoles: ['RegisteredUsers']}
         ]).buildNavigationModel();
 
         router.guardRoute = function (routeInfo, params, instance) {
@@ -38,8 +38,7 @@
                 }
 
                 return res;
-            }
-            else {
+            } else {
                 return true;
             }
 
@@ -131,8 +130,7 @@
                             setupRouter().done(function () {
                                 dfd.resolve();
                             });
-                        }
-                        else if (typeof (sessionStorage["loginUrl"]) !== "undefined") {
+                        } else if (typeof (sessionStorage["loginUrl"]) !== "undefined") {
                             sessionStorage["registerExternal"] = JSON.stringify({
                                 userName: data.userName,
                                 loginProvider: data.loginProvider,
@@ -148,8 +146,7 @@
                             setupRouter().done(function () {
                                 dfd.resolve();
                             });
-                        }
-                        else {
+                        } else {
                             logger.log({
                                 message: "Login failed.",
                                 showToast: true,
@@ -219,8 +216,7 @@
                         dfd.resolve();
                     });
                 });
-        }
-        else {
+        } else {
             setupRouter().done(function () {
                 dfd.resolve();
             });
