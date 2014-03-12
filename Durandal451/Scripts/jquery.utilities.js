@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿(function($) {
     //arguments: array, comparison (value to compare against or function which should return true/false)
     $.arrayContains = function (array, comparison) {
         if (Object.prototype.toString.call(array) === '[object Array]') {
@@ -114,5 +114,4 @@
             return $.inArray(i, array2) > -1;
         });
     };
-
 })(jQuery);
