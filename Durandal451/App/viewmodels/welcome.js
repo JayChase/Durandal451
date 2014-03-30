@@ -2,7 +2,7 @@
     var vm = {
         displayName: 'Durandal 451',        
         features: [
-            'OWIN OAuth support (with 3rd party authentication providers',
+            'OWIN OAuth support (with 3rd party authentication providers)',
             'Remember user using local storage',
             'Secure routing',
             'Customise views for the user dependent on user roles'
