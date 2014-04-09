@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Durandal.Authentication</id>
+    <version>1.6.4-alpha</version>
+    <title>Durandal Authentication (OWIN)</title>
+    <authors>JayChase</authors>
+    <owners>JayChase</owners>
+    <licenseUrl>https://github.com/BlueSpire/Durandal/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451</projectUrl>
+    <iconUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451/blob/master/Durandal451/Content/images/iconOriginal.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package adds authentication (OWIN forms and external auth) to Durandal 2.0.1 (the Bootstrap 3 starterkit version).</description>
+    <releaseNotes>Alpha release</releaseNotes>
+    <copyright>Copyright 2014 Useful Software Solutions Ltd</copyright>
+    <tags>Durandal Authentication OAuth OWIN</tags>	 
+	 <dependencies>
+		<dependency id="ProvenStyle.Durandal.StarterKit" version="0.0.11" />
+		<dependency id="Toastr"/>
+		<dependency id="Knockout-Validation" version="1.0.2" />
+		<dependency id="Microsoft.AspNet.WebApi" />
+		<dependency id="EntityFramework" version="6.0.0" />
+		<dependency id="Microsoft.AspNet.Identity.Core" version="1.0.0"/>
+		<dependency id="Microsoft.AspNet.Identity.EntityFramework" version="1.0.0"/>
+		<dependency id="Owin" version="1.0"/>
+		<dependency id="Microsoft.Owin" version="2.0.0"/>
+		<dependency id="Microsoft.AspNet.WebApi.Owin" version="5.0.0"/>
+		<dependency id="Microsoft.AspNet.Identity.Owin" version="1.0.0"/>		
+		<dependency id="Microsoft.Owin.Host.SystemWeb" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.Cookies" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.OAuth" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.Twitter" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.Google" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.Facebook" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security.MicrosoftAccount" version="2.0.0"/>
+	 </dependencies>
+  </metadata>
+</package>
