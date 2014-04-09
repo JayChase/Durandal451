@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1E812D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3EAB9AC7-4414-4F7F-A577-7AA3666C44B7}"
 	ProjectSection(SolutionItems) = preProject
+		Nuget\CreateContent.bat = Nuget\CreateContent.bat
 		readme.md = readme.md
+		Nuget\transformations.ps1 = Nuget\transformations.ps1
 	EndProjectSection
 EndProject
 Global
