@@ -18,13 +18,22 @@
                 window.location = data.url;
             };
         }
+
+        function reset() {
+            vm.userName("");
+            vm.password("");
+            vm.rememberMe(false);
+            vm.setFocus(true);
+            vm.validationErrors.showAllMessages(false);
+        }
+
         // Reveal the bindable properties and functions
         var vm = {
             activate: activate,
             goBack: goBack,
             title: 'login',
             session: session,
-            validationTriggered: ko.observable(false),
+            setFocus: ko.observable(true),
             userName: ko.observable("").extend({ required: true }),
             password: ko.observable("").extend({ required: true }),
             rememberMe: ko.observable(false),
@@ -32,8 +41,8 @@
             loaded: false,
             login: login,
             register: register
-
         };
+
 
         vm.validationErrors = ko.validation.group([vm.userName, vm.password]);
         vm.hasExternalLogin = ko.computed(function () {
@@ -47,6 +56,8 @@
             var dfd = $.Deferred();
 
             session.isBusy(true);
+
+            reset();
 
             if (!vm.loaded)
             {
@@ -89,6 +100,10 @@
             }
         }
 
+        function deactivate() {
+            vm.setFocus(false);
+        }
+
         function goBack() {
             router.navigateBack();
         }
@@ -124,7 +139,7 @@
             }).failJSON(function (data) {
                 if (data && data.error_description) {
                     logger.log({
-                        message: "Error logging in.",
+                        message: data.error_description,
                         data: data.error_description,
                         showToast: true,
                         type: "error"

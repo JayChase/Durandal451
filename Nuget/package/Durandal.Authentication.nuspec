@@ -2,16 +2,16 @@
 <package >
   <metadata>
     <id>Durandal.Authentication</id>
-    <version>1.6.4-alpha</version>
-    <title>Durandal Authentication (OWIN)</title>
+    <version>1.6.5</version>
+    <title>Durandal Authentication (OWIN OAuth 2.0)</title>
     <authors>JayChase</authors>
     <owners>JayChase</owners>
     <licenseUrl>https://github.com/BlueSpire/Durandal/blob/master/License.txt</licenseUrl>
     <projectUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451</projectUrl>
     <iconUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451/blob/master/Durandal451/Content/images/iconOriginal.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package adds authentication (OWIN forms and external auth) to Durandal 2.0.1 (the Bootstrap 3 starterkit version).</description>
-    <releaseNotes>Alpha release</releaseNotes>
+    <description>This package adds authentication (OWIN forms and OAuth version 2.0.0) to Durandal 2.0.1 (the Bootstrap 3 starterkit version). To get started create a new ASP.NEt Web Application with core references for MVC and Web API and then install this package (saying yes to overwrite any file conflicts).</description>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2014 Useful Software Solutions Ltd</copyright>
     <tags>Durandal Authentication OAuth OWIN</tags>	 
 	 <dependencies>

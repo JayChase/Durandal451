@@ -13,7 +13,7 @@
     },
     shim: {
         'jquery.utilities': {
-            dep: ['jquery']
+            deps: ['jquery']
         },
         'bootstrap': {
             deps: ['jquery'],
@@ -25,7 +25,8 @@
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator','global/session', 'knockout', 'knockout.validation'], function (system, app, viewLocator,session, ko) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/composition', 'global/session', 'knockout', 'knockout.validation'],
+    function (system, app, viewLocator,composition, session, ko) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
@@ -37,6 +38,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator','global/sessio
         dialog: true,
         widget: true
     });
+
+    composition.addBindingHandler('hasFocus');
 
     configureKnockout();
     

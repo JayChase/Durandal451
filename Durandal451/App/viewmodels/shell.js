@@ -1,4 +1,5 @@
-﻿define(['plugins/router', 'durandal/app', 'global/session', 'services/security','services/logger', 'jquery', 'jquery.utilities'], function (router, app, session, security,logger, $) {
+﻿define(['plugins/router', 'durandal/app', 'global/session', 'services/security', 'services/logger', 'jquery', 'jquery.utilities'],
+    function (router, app, session, security, logger, $) {
     
     function verifyStateMatch(fragment) {
         var state;
