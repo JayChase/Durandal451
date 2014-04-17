@@ -50,6 +50,8 @@ xcopy /Y ..\%sourceDir%\Views\Durandal\Index.cshtml %destinationDir%\Views\Duran
 
 echo F | xcopy /Y ..\%sourceDir%\Startup.cs "%destinationDir%\Startup.cs.pp"
 
+echo F | xcopy /Y ..\readme.md "%destinationDir%\Durandal.Authenticion.Readme.md"
+
 ::sort out the namespace in cs files
 
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Users\Jon\Documents\USS Work\Durandal451\Nuget\transformations.ps1'"
