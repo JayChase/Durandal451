@@ -1,7 +1,6 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Durandal451.Areas.HelpPage.Models;
 
 namespace Durandal451.Areas.HelpPage.Controllers
 {
@@ -30,16 +29,10 @@ namespace Durandal451.Areas.HelpPage.Controllers
 
         public ActionResult Api(string apiId)
         {
-            if (!String.IsNullOrEmpty(apiId))
-            {
-                HelpPageApiModel apiModel = Configuration.GetHelpPageApiModel(apiId);
-                if (apiModel != null)
-                {
-                    return View(apiModel);
-                }
-            }
+            if (String.IsNullOrEmpty(apiId)) return View("Error");
+            var apiModel = Configuration.GetHelpPageApiModel(apiId);
 
-            return View("Error");
+            return apiModel != null ? View(apiModel) : View("Error");
         }
     }
 }

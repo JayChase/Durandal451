@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,16 +14,17 @@ namespace Durandal451.Results
             Request = controller.Request;
         }
 
-        public string LoginProvider { get; set; }
-        public HttpRequestMessage Request { get; set; }
+        private string LoginProvider { get; set; }
+        private HttpRequestMessage Request { get; set; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
             Request.GetOwinContext().Authentication.Challenge(LoginProvider);
 
-            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
-            response.RequestMessage = Request;
-            return Task.FromResult(response);
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.Unauthorized)
+                                       {
+                                           RequestMessage = Request
+                                       });
         }
     }
 }

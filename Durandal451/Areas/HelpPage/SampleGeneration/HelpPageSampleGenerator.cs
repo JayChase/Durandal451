@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +12,6 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
 using System.Xml.Linq;
-using Newtonsoft.Json;
 
 namespace Durandal451.Areas.HelpPage
 {
@@ -77,11 +77,11 @@ namespace Durandal451.Areas.HelpPage
             {
                 throw new ArgumentNullException("api");
             }
-            string controllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName;
-            string actionName = api.ActionDescriptor.ActionName;
-            IEnumerable<string> parameterNames = api.ParameterDescriptions.Select(p => p.Name);
+            var controllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName;
+            var actionName = api.ActionDescriptor.ActionName;
+            var parameterNames = api.ParameterDescriptions.Select(p => p.Name);
             Collection<MediaTypeFormatter> formatters;
-            Type type = ResolveType(api, controllerName, actionName, parameterNames, sampleDirection, out formatters);
+            var type = ResolveType(api, controllerName, actionName, parameterNames, sampleDirection, out formatters);
             var samples = new Dictionary<MediaTypeHeaderValue, object>();
 
             // Use the samples provided directly for actions
@@ -95,14 +95,14 @@ namespace Durandal451.Areas.HelpPage
             // Here we cannot rely on formatters because we don't know what's in the HttpResponseMessage, it might not even use formatters.
             if (type != null && !typeof(HttpResponseMessage).IsAssignableFrom(type))
             {
-                object sampleObject = GetSampleObject(type);
+                var sampleObject = GetSampleObject(type);
                 foreach (var formatter in formatters)
                 {
-                    foreach (MediaTypeHeaderValue mediaType in formatter.SupportedMediaTypes)
+                    foreach (var mediaType in formatter.SupportedMediaTypes)
                     {
                         if (!samples.ContainsKey(mediaType))
                         {
-                            object sample = GetActionSample(controllerName, actionName, parameterNames, type, formatter, mediaType, sampleDirection);
+                            var sample = GetActionSample(controllerName, actionName, parameterNames, type, formatter, mediaType, sampleDirection);
 
                             // If no sample found, try generate sample using formatter and sample object
                             if (sample == null && sampleObject != null)
@@ -160,7 +160,7 @@ namespace Durandal451.Areas.HelpPage
             if (!SampleObjects.TryGetValue(type, out sampleObject))
             {
                 // Try create a default sample object
-                ObjectGenerator objectGenerator = new ObjectGenerator();
+                var objectGenerator = new ObjectGenerator();
                 sampleObject = objectGenerator.GenerateObject(type);
             }
 
@@ -192,7 +192,7 @@ namespace Durandal451.Areas.HelpPage
                 ActualHttpMessageTypes.TryGetValue(new HelpPageSampleKey(sampleDirection, controllerName, actionName, new[] { "*" }), out type))
             {
                 // Re-compute the supported formatters based on type
-                Collection<MediaTypeFormatter> newFormatters = new Collection<MediaTypeFormatter>();
+                var newFormatters = new Collection<MediaTypeFormatter>();
                 foreach (var formatter in api.ActionDescriptor.Configuration.Formatters)
                 {
                     if (IsFormatSupported(sampleDirection, formatter, type))
@@ -207,7 +207,7 @@ namespace Durandal451.Areas.HelpPage
                 switch (sampleDirection)
                 {
                     case SampleDirection.Request:
-                        ApiParameterDescription requestBodyParameter = api.ParameterDescriptions.FirstOrDefault(p => p.Source == ApiParameterSource.FromBody);
+                        var requestBodyParameter = api.ParameterDescriptions.FirstOrDefault(p => p.Source == ApiParameterSource.FromBody);
                         type = requestBodyParameter == null ? null : requestBodyParameter.ParameterDescriptor.ParameterType;
                         formatters = api.SupportedRequestBodyFormatters;
                         break;
@@ -253,8 +253,8 @@ namespace Durandal451.Areas.HelpPage
                     content = new ObjectContent(type, value, formatter, mediaType);
                     formatter.WriteToStreamAsync(type, value, ms, content, null).Wait();
                     ms.Position = 0;
-                    StreamReader reader = new StreamReader(ms);
-                    string serializedSampleString = reader.ReadToEnd();
+                    var reader = new StreamReader(ms);
+                    var serializedSampleString = reader.ReadToEnd();
                     if (mediaType.MediaType.ToUpperInvariant().Contains("XML"))
                     {
                         serializedSampleString = TryFormatXml(serializedSampleString);
@@ -305,7 +305,7 @@ namespace Durandal451.Areas.HelpPage
         {
             try
             {
-                object parsedJson = JsonConvert.DeserializeObject(str);
+                var parsedJson = JsonConvert.DeserializeObject(str);
                 return JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
             }
             catch
@@ -320,7 +320,7 @@ namespace Durandal451.Areas.HelpPage
         {
             try
             {
-                XDocument xml = XDocument.Parse(str);
+                var xml = XDocument.Parse(str);
                 return xml.ToString();
             }
             catch
@@ -344,10 +344,10 @@ namespace Durandal451.Areas.HelpPage
 
         private IEnumerable<KeyValuePair<HelpPageSampleKey, object>> GetAllActionSamples(string controllerName, string actionName, IEnumerable<string> parameterNames, SampleDirection sampleDirection)
         {
-            HashSet<string> parameterNamesSet = new HashSet<string>(parameterNames, StringComparer.OrdinalIgnoreCase);
+            var parameterNamesSet = new HashSet<string>(parameterNames, StringComparer.OrdinalIgnoreCase);
             foreach (var sample in ActionSamples)
             {
-                HelpPageSampleKey sampleKey = sample.Key;
+                var sampleKey = sample.Key;
                 if (String.Equals(controllerName, sampleKey.ControllerName, StringComparison.OrdinalIgnoreCase) &&
                     String.Equals(actionName, sampleKey.ActionName, StringComparison.OrdinalIgnoreCase) &&
                     (sampleKey.ParameterNames.SetEquals(new[] { "*" }) || parameterNamesSet.SetEquals(sampleKey.ParameterNames)) &&
@@ -360,7 +360,7 @@ namespace Durandal451.Areas.HelpPage
 
         private static object WrapSampleIfString(object sample)
         {
-            string stringSample = sample as string;
+            var stringSample = sample as string;
             if (stringSample != null)
             {
                 return new TextSample(stringSample);

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -15,6 +16,16 @@ namespace Durandal451
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        internal static string Path
+        {
+            get
+            {
+                var path = AppDomain.CurrentDomain.FriendlyName;
+                path = path.Substring(path.LastIndexOf("/", StringComparison.Ordinal));
+                path = path.Substring(0, path.IndexOf("-", StringComparison.Ordinal));
+                return path;
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Durandal451.Models
     public class IdentityDbInitializer : CreateDatabaseIfNotExists<IdentityDbContext>
     {
         protected override void Seed(IdentityDbContext context)
-        {       
+        {
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
 
@@ -20,10 +20,10 @@ namespace Durandal451.Models
 
             roleManager.Create(adminRole);
             roleManager.Create(userRole);
-            
+
             var userStore = new UserStore<IdentityUser>(context);
             var userManager = new UserManager<IdentityUser>(userStore);
-            
+
             var administrator = new IdentityUser { UserName = "Administrator" };
 
             userManager.Create(administrator, "Administrator451");

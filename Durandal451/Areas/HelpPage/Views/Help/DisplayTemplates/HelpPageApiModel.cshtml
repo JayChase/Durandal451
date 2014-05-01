@@ -1,12 +1,11 @@
-@using System.Web.Http
 @using Durandal451.Areas.HelpPage.Models
 @model HelpPageApiModel
 
 @{ 
     var description = Model.ApiDescription;
-    bool hasParameters = description.ParameterDescriptions.Count > 0;
-    bool hasRequestSamples = Model.SampleRequests.Count > 0;
-    bool hasResponseSamples = Model.SampleResponses.Count > 0;
+    var hasParameters = description.ParameterDescriptions.Count > 0;
+    var hasRequestSamples = Model.SampleRequests.Count > 0;
+    var hasResponseSamples = Model.SampleResponses.Count > 0;
 }
 <h1>@description.HttpMethod.Method @description.RelativePath</h1>
 <div>

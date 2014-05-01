@@ -1,13 +1,12 @@
+using Durandal451.Areas.HelpPage.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Durandal451.Areas.HelpPage.Models;
 
 namespace Durandal451.Areas.HelpPage
 {
@@ -191,14 +190,14 @@ namespace Durandal451.Areas.HelpPage
         public static HelpPageApiModel GetHelpPageApiModel(this HttpConfiguration config, string apiDescriptionId)
         {
             object model;
-            string modelId = ApiModelPrefix + apiDescriptionId;
+            var modelId = ApiModelPrefix + apiDescriptionId;
             if (!config.Properties.TryGetValue(modelId, out model))
             {
-                Collection<ApiDescription> apiDescriptions = config.Services.GetApiExplorer().ApiDescriptions;
-                ApiDescription apiDescription = apiDescriptions.FirstOrDefault(api => String.Equals(api.GetFriendlyId(), apiDescriptionId, StringComparison.OrdinalIgnoreCase));
+                var apiDescriptions = config.Services.GetApiExplorer().ApiDescriptions;
+                var apiDescription = apiDescriptions.FirstOrDefault(api => String.Equals(api.GetFriendlyId(), apiDescriptionId, StringComparison.OrdinalIgnoreCase));
                 if (apiDescription != null)
                 {
-                    HelpPageSampleGenerator sampleGenerator = config.GetHelpPageSampleGenerator();
+                    var sampleGenerator = config.GetHelpPageSampleGenerator();
                     model = GenerateApiModel(apiDescription, sampleGenerator);
                     config.Properties.TryAdd(modelId, model);
                 }
@@ -210,7 +209,7 @@ namespace Durandal451.Areas.HelpPage
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as ErrorMessages.")]
         private static HelpPageApiModel GenerateApiModel(ApiDescription apiDescription, HelpPageSampleGenerator sampleGenerator)
         {
-            HelpPageApiModel apiModel = new HelpPageApiModel();
+            var apiModel = new HelpPageApiModel();
             apiModel.ApiDescription = apiDescription;
 
             try
@@ -237,7 +236,7 @@ namespace Durandal451.Areas.HelpPage
 
         private static void LogInvalidSampleAsError(HelpPageApiModel apiModel, object sample)
         {
-            InvalidSample invalidSample = sample as InvalidSample;
+            var invalidSample = sample as InvalidSample;
             if (invalidSample != null)
             {
                 apiModel.ErrorMessages.Add(invalidSample.ErrorMessage);
