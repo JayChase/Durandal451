@@ -1,25 +1,28 @@
 ﻿define(['jquery'],
     function ($) {
+        var baseUrl = $('head base').attr('href');
+
+        var accountUrl = baseUrl + "api/Account/";
         // Routes
-        addExternalLoginUrl = "/api/Account/AddExternalLogin",
-        changePasswordUrl = "/api/Account/changePassword",
-        loginUrl = "/Token",
-        logoutUrl = "/api/Account/Logout",
-        registerUrl = "/api/Account/Register",
-        registerExternalUrl = "/api/Account/RegisterExternal",
-        removeLoginUrl = "/api/Account/RemoveLogin",
-        setPasswordUrl = "/api/Account/setPassword",
-        siteUrl = "/",
-        userInfoUrl = "/api/Account/UserInfo";
+        window.addExternalLoginUrl = accountUrl + "AddExternalLogin",
+        window.changePasswordUrl = accountUrl + "changePassword",
+        window.loginUrl = "/Token",
+        window.logoutUrl = accountUrl + "Logout",
+        window.registerUrl = accountUrl + "Register",
+        window.registerExternalUrl = accountUrl + "RegisterExternal",
+        window.removeLoginUrl = accountUrl + "RemoveLogin",
+        window.setPasswordUrl = accountUrl + "setPassword",
+        window.siteUrl = baseUrl,
+        window.userInfoUrl = accountUrl + "UserInfo";
 
         // Route operations
         function externalLoginsUrl(returnUrl, generateState) {
-            return "/api/Account/ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return accountUrl + "ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 
         function manageInfoUrl(returnUrl, generateState) {
-            return "/api/Account/ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return accountUrl + "ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 
@@ -35,7 +38,7 @@
         }
 
         function toErrorString(data) {
-            var errors, items;
+            var errors = undefined, items;
 
             if (!data || !data.message) {
                 return null;
@@ -58,7 +61,7 @@
             }
 
             return errors;
-        }
+        };
 
         var securityService = {
             addExternalLogin: addExternalLogin,
@@ -76,9 +79,10 @@
             toErrorString: toErrorString
         };
 
-        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-            jqXHR.failJSON = function (callback) {
-                jqXHR.fail(function (jqXHR, textStatus, error) {
+        $.ajaxPrefilter(function (options, originalOptions, jqXhr) {
+            jqXhr.failJSON = function (callback) {
+// ReSharper disable once InconsistentNaming
+                jqXhr.fail(function (jqXHR, textStatus, error) {
                     var data;
 
                     try {
@@ -97,7 +101,7 @@
   
         // Data access operations
         function addExternalLogin(data) {
-            return $.ajax(addExternalLoginUrl, {
+            return $.ajax(window.addExternalLoginUrl, {
                 type: "POST",
                 data: data,
                 headers: getSecurityHeaders()

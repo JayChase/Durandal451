@@ -1,32 +1,5 @@
-﻿requirejs.config({
-    paths: {
-        'text': '../Scripts/text',
-        'durandal': '../Scripts/durandal',
-        'plugins': '../Scripts/durandal/plugins',
-        'transitions': '../Scripts/durandal/transitions',
-        'knockout': '../Scripts/knockout-2.3.0',
-        'knockout.validation': '../Scripts/knockout.validation',
-        'bootstrap': '../Scripts/bootstrap',
-        'jquery': '../Scripts/jquery-1.10.2',
-        'jquery.utilities': '../Scripts/jquery.utilities',
-        'toastr': '../Scripts/toastr'
-    },
-    shim: {
-        'jquery.utilities': {
-            deps: ['jquery']
-        },
-        'bootstrap': {
-            deps: ['jquery'],
-            exports: 'jQuery'
-        },
-        'knockout.validation': {
-            deps: ['knockout']
-        }
-    }
-});
-
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/composition', 'global/session', 'knockout', 'knockout.validation'],
-    function (system, app, viewLocator,composition, session, ko) {
+﻿define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/composition', 'global/session', 'knockout', 'knockout.validation'],
+    function (system, app, viewLocator, composition, session, ko) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
