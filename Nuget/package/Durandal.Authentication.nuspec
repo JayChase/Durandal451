@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Durandal.Authentication</id>
-    <version>1.6.8-beta</version>
+    <version>1.6.8-beta10</version>
     <title>Durandal Authentication (OWIN OAuth 2.0)</title>
     <authors>JayChase</authors>
     <owners>JayChase</owners>

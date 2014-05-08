@@ -5,6 +5,7 @@ SET destinationDir=package\content
 RMDIR %destinationDir% /S /Q
 
 ::copy source files
+echo F | xcopy /Y ..\%sourceDir%\Web.config.install.xdt %destinationDir%\Web.config.install.xdt
 
 xcopy /Y ..\%sourceDir%\app\main.js %destinationDir%\app\
 

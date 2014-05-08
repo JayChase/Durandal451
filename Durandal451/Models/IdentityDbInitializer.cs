@@ -30,7 +30,6 @@ namespace Durandal451.Models
 
             userManager.AddToRole(administrator.Id, "RegisteredUsers");
             userManager.AddToRole(administrator.Id, "Administrators");
-
         }
     }
 }
