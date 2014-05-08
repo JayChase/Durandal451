@@ -114,4 +114,14 @@
             return $.inArray(i, array2) > -1;
         });
     };
+
+    $.getBasePath = function () {
+        var path = window.location.pathname;
+
+        if (path === "/") {
+            return "";
+        } else {
+            return path;
+        }
+    };
 })(jQuery);

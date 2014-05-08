@@ -1,25 +1,26 @@
-﻿define(['jquery'],
+﻿define(['jquery', 'jquery.utilities'],
     function ($) {
         // Routes
-        addExternalLoginUrl = "/api/Account/AddExternalLogin",
-        changePasswordUrl = "/api/Account/changePassword",
-        loginUrl = "/Token",
-        logoutUrl = "/api/Account/Logout",
-        registerUrl = "/api/Account/Register",
-        registerExternalUrl = "/api/Account/RegisterExternal",
-        removeLoginUrl = "/api/Account/RemoveLogin",
-        setPasswordUrl = "/api/Account/setPassword",
-        siteUrl = "/",
+        var baseUrl = $.getBasePath(),
+        addExternalLoginUrl = baseUrl + "/api/Account/AddExternalLogin",
+        changePasswordUrl = baseUrl + "/api/Account/changePassword",
+        loginUrl = baseUrl + "/Token",
+        logoutUrl = baseUrl + "/api/Account/Logout",
+        registerUrl = baseUrl + "/api/Account/Register",
+        registerExternalUrl = baseUrl + "/api/Account/RegisterExternal",
+        removeLoginUrl = baseUrl + "/api/Account/RemoveLogin",
+        setPasswordUrl = baseUrl + "/api/Account/setPassword",
+        siteUrl = baseUrl,
         userInfoUrl = "/api/Account/UserInfo";
 
         // Route operations
         function externalLoginsUrl(returnUrl, generateState) {
-            return "/api/Account/ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return baseUrl + "/api/Account/ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 
         function manageInfoUrl(returnUrl, generateState) {
-            return "/api/Account/ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return baseUrl + "/api/Account/ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 

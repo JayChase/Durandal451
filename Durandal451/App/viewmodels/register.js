@@ -142,6 +142,8 @@
                         });
                     }
                 });
+            }).always(function () {
+                session.isBusy(false);
             }).failJSON(function (data) {
                 var errors = security.toErrorString(data);
 

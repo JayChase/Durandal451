@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Nuget\CreateContent.bat = Nuget\CreateContent.bat
 		Nuget\package\Durandal.Authentication.nuspec = Nuget\package\Durandal.Authentication.nuspec
+		Nuget\package\tools\install.ps1 = Nuget\package\tools\install.ps1
 		readme.md = readme.md
 		Nuget\transformations.ps1 = Nuget\transformations.ps1
 	EndProjectSection
