@@ -31,6 +31,7 @@ xcopy /Y ..\%sourceDir%\app\views\start.html %destinationDir%\app\views\
 xcopy /Y ..\%sourceDir%\app\views\welcome.html %destinationDir%\app\views\
 
 xcopy /Y ..\%sourceDir%\Scripts\jquery.utilities.js %destinationDir%\Scripts\
+xcopy /Y ..\%sourceDir%\Scripts\knockout.validation.js %destinationDir%\Scripts\
 
 echo F | xcopy /Y ..\%sourceDir%\App_Start\DurandalBundleConfig.cs "%destinationDir%\App_Start\DurandalBundleConfig.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\App_Start\Startup.Auth.cs "%destinationDir%\App_Start\Startup.Auth.cs.pp"

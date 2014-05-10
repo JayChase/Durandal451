@@ -118,8 +118,8 @@
     $.getBasePath = function () {
         var path = window.location.pathname;
 
-        if (path === "/") {
-            return "";
+        if (path.substring(path.length - 1) !== "/") {
+            return path + "/";
         } else {
             return path;
         }

@@ -2,25 +2,25 @@
     function ($) {
         // Routes
         var baseUrl = $.getBasePath(),
-        addExternalLoginUrl = baseUrl + "/api/Account/AddExternalLogin",
-        changePasswordUrl = baseUrl + "/api/Account/changePassword",
-        loginUrl = baseUrl + "/Token",
-        logoutUrl = baseUrl + "/api/Account/Logout",
-        registerUrl = baseUrl + "/api/Account/Register",
-        registerExternalUrl = baseUrl + "/api/Account/RegisterExternal",
-        removeLoginUrl = baseUrl + "/api/Account/RemoveLogin",
-        setPasswordUrl = baseUrl + "/api/Account/setPassword",
+        addExternalLoginUrl = baseUrl + "api/Account/AddExternalLogin",
+        changePasswordUrl = baseUrl + "api/Account/changePassword",
+        loginUrl = baseUrl + "Token",
+        logoutUrl = baseUrl + "api/Account/Logout",
+        registerUrl = baseUrl + "api/Account/Register",
+        registerExternalUrl = baseUrl + "api/Account/RegisterExternal",
+        removeLoginUrl = baseUrl + "api/Account/RemoveLogin",
+        setPasswordUrl = baseUrl + "api/Account/setPassword",
         siteUrl = baseUrl,
-        userInfoUrl = "/api/Account/UserInfo";
+        userInfoUrl = "api/Account/UserInfo";
 
         // Route operations
         function externalLoginsUrl(returnUrl, generateState) {
-            return baseUrl + "/api/Account/ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return baseUrl + "api/Account/ExternalLogins?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 
         function manageInfoUrl(returnUrl, generateState) {
-            return baseUrl + "/api/Account/ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
+            return baseUrl + "api/Account/ManageInfo?returnUrl=" + (encodeURIComponent(returnUrl)) +
                 "&generateState=" + (generateState ? "true" : "false");
         }
 
@@ -47,9 +47,7 @@
                     items = data.modelState[key];
 
                     if (items.length) {
-                        for (var i = 0; i < items.length; i++) {
-                            errors += ", " + items[i];
-                        }
+                        errors = items.join(",");
                     }
                 }
             }
@@ -95,7 +93,7 @@
         });
 
         return securityService;
-  
+
         // Data access operations
         function addExternalLogin(data) {
             return $.ajax(addExternalLoginUrl, {
