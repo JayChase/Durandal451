@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Durandal.Authentication</id>
-    <version>1.7.0</version>
+    <version>1.7.3</version>
     <title>Durandal Authentication (OWIN OAuth 2.0)</title>
     <authors>JayChase</authors>
     <owners>JayChase</owners>
@@ -20,20 +20,20 @@
 		<dependency id="Knockout-Validation" version="1.0.2" />
 		<dependency id="Microsoft.AspNet.WebApi" />
 		<dependency id="EntityFramework" version="6.0.0" />
-		<dependency id="Microsoft.AspNet.Identity.Core" version="1.0.0"/>
-		<dependency id="Microsoft.AspNet.Identity.EntityFramework" version="1.0.0"/>
-		<dependency id="Owin" version="1.0"/>
-		<dependency id="Microsoft.Owin" version="2.0.0"/>
-		<dependency id="Microsoft.AspNet.WebApi.Owin" version="5.0.0"/>
-		<dependency id="Microsoft.AspNet.Identity.Owin" version="1.0.0"/>		
+		<dependency id="Microsoft.AspNet.Identity.Core" version="[1.00]"/>
+		<dependency id="Microsoft.AspNet.Identity.EntityFramework" version="[1.00]"/>
+    <dependency id="Microsoft.AspNet.Identity.Owin" version="[1.00]"/>
+		<dependency id="Owin" version="[1.00]"/>
+		<dependency id="Microsoft.Owin" version="[2.00]"/>
+		<dependency id="Microsoft.AspNet.WebApi.Owin" version="5.0.0"/>				
 		<dependency id="Microsoft.Owin.Host.SystemWeb" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.Cookies" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.OAuth" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.Twitter" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.Google" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.Facebook" version="2.0.0"/>
-		<dependency id="Microsoft.Owin.Security.MicrosoftAccount" version="2.0.0"/>
+		<dependency id="Microsoft.Owin.Security" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.Cookies" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.OAuth" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.Twitter" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.Google" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.Facebook" version="[2,3)"/>
+		<dependency id="Microsoft.Owin.Security.MicrosoftAccount" version="[2,3)"/>
 	 </dependencies>
   </metadata>
 </package>
