@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Durandal.Authentication</id>
+    <version>2.0.0</version>
+    <title>Durandal Authentication</title>
+    <authors>JayChase</authors>
+    <owners>JayChase</owners>
+    <licenseUrl>https://github.com/BlueSpire/Durandal/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451</projectUrl>
+    <iconUrl>https://github.com/Useful-Software-Solutions-Ltd/Durandal451/blob/master/Durandal451/Content/images/iconOriginal.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>To get started create a new Web Api project with the authentication set to 'Individual User Accounts'. This package adds authentication (ASP.NET Identity version 2.0.0) to Durandal 2.0.1 (the Bootstrap 3 starterkit version). If you are not using SSL remove the HTTPREquired attributes from the Durandal and Account controllers. The expected version of JQuery is 1.10.2. If you are using another version update the jquery path in App/main.js. If you are using ASP.NET Identity version 1.0.0 please install version 1.7.3 of this package.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014 Useful Software Solutions Ltd</copyright>
+    <tags>Durandal Authentication OAuth OWIN</tags>	 
+	 <dependencies>
+		<dependency id="Microsoft.AspNet.Identity.Core" version="2.0.0" />
+		<dependency id="ProvenStyle.Durandal.StarterKit" version="0.0.11" />
+		<dependency id="Toastr" version="2.0.1" />
+	 </dependencies>
+  </metadata>
+</package>

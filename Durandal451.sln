@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Durandal451", "Durandal451\Durandal451.csproj", "{E5385950-C0D6-4CA2-B756-D730DA647F9D}"
 EndProject
@@ -15,11 +15,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3EAB9AC7-4414-4F7F-A577-7AA3666C44B7}"
 	ProjectSection(SolutionItems) = preProject
 		Nuget\CreateContent.bat = Nuget\CreateContent.bat
+		Nuget\CreateContentV2.bat = Nuget\CreateContentV2.bat
 		Nuget\package\Durandal.Authentication.nuspec = Nuget\package\Durandal.Authentication.nuspec
+		Nuget\package2\Durandal.Authentication.v2.nuspec = Nuget\package2\Durandal.Authentication.v2.nuspec
 		Nuget\package\tools\install.ps1 = Nuget\package\tools\install.ps1
 		readme.md = readme.md
 		Nuget\transformations.ps1 = Nuget\transformations.ps1
+		Nuget\transformationsV2.ps1 = Nuget\transformationsV2.ps1
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Durandal451v2", "Durandal451v2\Durandal451v2.csproj", "{BBB43743-5B7C-49D6-8F47-D2ED92C2820F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +36,10 @@ Global
 		{E5385950-C0D6-4CA2-B756-D730DA647F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5385950-C0D6-4CA2-B756-D730DA647F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5385950-C0D6-4CA2-B756-D730DA647F9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB43743-5B7C-49D6-8F47-D2ED92C2820F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB43743-5B7C-49D6-8F47-D2ED92C2820F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB43743-5B7C-49D6-8F47-D2ED92C2820F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB43743-5B7C-49D6-8F47-D2ED92C2820F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

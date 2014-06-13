@@ -1,8 +1,11 @@
-SET sourceDir=Durandal451
-SET destinationDir=package\content
+SET sourceDir=Durandal451v2
+SET destinationDir=package2\content
 
 ::Clear any existing files 
 RMDIR %destinationDir% /S /Q
+
+::clear any existing packages from this folder
+DEL Durandal.Authentication.*.nupkg /F /Q
 
 ::copy source files
 echo F | xcopy /Y ..\%sourceDir%\Web.config.install.xdt %destinationDir%\Web.config.install.xdt
@@ -40,6 +43,8 @@ echo F | xcopy /Y ..\%sourceDir%\App_Start\RouteConfig.cs "%destinationDir%\App_
 
 echo F | xcopy /Y ..\%sourceDir%\Controllers\AccountController.cs "%destinationDir%\Controllers\AccountController.cs.pp"
 
+echo F | xcopy /Y ..\%sourceDir%\Filters\RequireHttpsAttribute.cs "%destinationDir%\Filters\RequireHttpsAttribute.cs.pp"
+
 echo F | xcopy /Y ..\%sourceDir%\Models\AccountBindingModels.cs "%destinationDir%\Models\AccountBindingModels.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\Models\AccountViewModels.cs "%destinationDir%\Models\AccountViewModels.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\Models\IdentityDbInitializer.cs "%destinationDir%\Models\IdentityDbInitializer.cs.pp"
@@ -56,7 +61,11 @@ echo F | xcopy /Y ..\readme.md "%destinationDir%\Durandal.Authenticion.Readme.md
 
 ::sort out the namespace in cs files
 
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Users\Jon\Documents\USS Work\AwesomeWeb\Durandal451\Nuget\transformations.ps1'"
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Users\Jon\Documents\USS Work\AwesomeWeb\Durandal451\Nuget\transformationsV2.ps1'"
 
 ::create the nuget package
-nuget pack package\Durandal.Authentication.nuspec
+nuget pack package2\Durandal.Authentication.v2.nuspec
+
+DEL CC:\Users\Jon\Documents\USS Work\AwesomeWeb\Durandal451\Nuget\Durandal.Authentication.*.nupkg /F /Q
+
+echo F | xcopy /Y Durandal.Authentication.*.nupkg "C:\Users\Jon\Documents\USS Work\LocalNuget\Durandal.Authentication.*.nupkg"
