@@ -37,17 +37,18 @@ xcopy /Y ..\%sourceDir%\Scripts\jquery.utilities.js %destinationDir%\Scripts\
 xcopy /Y ..\%sourceDir%\Scripts\knockout.validation.js %destinationDir%\Scripts\
 
 echo F | xcopy /Y ..\%sourceDir%\App_Start\DurandalBundleConfig.cs "%destinationDir%\App_Start\DurandalBundleConfig.cs.pp"
-echo F | xcopy /Y ..\%sourceDir%\App_Start\Startup.Auth.cs "%destinationDir%\App_Start\Startup.Auth.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\App_Start\WebApiConfig.cs "%destinationDir%\App_Start\WebApiConfig.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\App_Start\RouteConfig.cs "%destinationDir%\App_Start\RouteConfig.cs.pp"
 
 echo F | xcopy /Y ..\%sourceDir%\Controllers\AccountController.cs "%destinationDir%\Controllers\AccountController.cs.pp"
+echo F | xcopy /Y ..\%sourceDir%\Controllers\DurandalController.cs "%destinationDir%\Controllers\DurandalController.cs.pp"
 
 echo F | xcopy /Y ..\%sourceDir%\Filters\RequireHttpsAttribute.cs "%destinationDir%\Filters\RequireHttpsAttribute.cs.pp"
 
 echo F | xcopy /Y ..\%sourceDir%\Models\AccountBindingModels.cs "%destinationDir%\Models\AccountBindingModels.cs.pp"
 echo F | xcopy /Y ..\%sourceDir%\Models\AccountViewModels.cs "%destinationDir%\Models\AccountViewModels.cs.pp"
-echo F | xcopy /Y ..\%sourceDir%\Models\IdentityDbInitializer.cs "%destinationDir%\Models\IdentityDbInitializer.cs.pp"
+echo F | xcopy /Y ..\%sourceDir%\Models\ApplicationDbInitializer.cs "%destinationDir%\Models\ApplicationDbInitializer.cs.pp"
+echo F | xcopy /Y ..\%sourceDir%\Models\IdentityModels.cs "%destinationDir%\Models\IdentityModels.cs.pp"
 
 echo F | xcopy /Y ..\%sourceDir%\Providers\ApplicationOAuthProvider.cs "%destinationDir%\Providers\ApplicationOAuthProvider.cs.pp"
 

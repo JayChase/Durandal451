@@ -21,9 +21,9 @@ using Durandal451v2.Filters;
 
 namespace Durandal451v2.Controllers
 {
-    [Authorize]
-    [RoutePrefix("api/Account")]
     [RequireHttps]
+    [Authorize]
+    [RoutePrefix("api/Account")]    
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -119,7 +119,7 @@ namespace Durandal451v2.Controllers
             {
                 LocalLoginProvider = LocalLoginProvider,
                 Email = user.Email,
-                UserName = user.Email,
+                UserName = user.UserName,
                 Logins = logins,
                 ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
             };
@@ -339,7 +339,7 @@ namespace Durandal451v2.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
